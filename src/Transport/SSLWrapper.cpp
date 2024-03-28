@@ -40,7 +40,7 @@ SSLWrapper::SSLWrapper()
 
 SSLWrapper::~SSLWrapper()
 {
-    FIPS_mode_set(0);
+    EVP_default_properties_enable_fips(nullptr, 0);
     ENGINE_cleanup();
     CONF_modules_unload(1);
     EVP_cleanup();
